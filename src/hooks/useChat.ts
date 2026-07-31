@@ -44,7 +44,7 @@ export function useChat() {
   function handleDelete(id: string) {
     setConversations((prev) => prev.filter((c) => c.id !== id));
     if (activeId === id) {
-      setActiveId((prev) => {
+      setActiveId(() => {
         const remaining = conversations.filter((c) => c.id !== id);
         return remaining[0]?.id ?? null;
       });
